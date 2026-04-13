@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Favela - Vanilla JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Tela Inicial -->
+        <div id="start-screen" class="overlay">
+            <h1>Operação Favela</h1>
+            <p>Defenda a comunidade das ameaças. Ação e reflexos rápidos!</p>
+            <div class="controls-hint">
+                <span>MOVIMENTO: Setas ⬆⬇⬅➡</span>
+                <span>ATIRAR: [ESPAÇO]</span>
+            </div>
+            <button id="start-btn" class="start-btn">Iniciar Operação</button>
+        </div>
+
+        <!-- Tela de Game Over  -->
+        <div id="game-over-screen" class="overlay" style="display: none;">
+            <h1 class="game-over-text">GAME OVER</h1>
+            <p>Você foi abatido...</p>
+            <div class="score-board">
+                <h2 id="final-score">PONTUAÇÃO: 0</h2>
+            </div>
+            <button id="restart-btn" class="start-btn">Tentar Novamente</button>
+        </div>
+
+        <!-- Canvas do Jogo -->
+        <canvas id="game-canvas" class="game-canvas" width="800" height="400" style="display: none;"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
