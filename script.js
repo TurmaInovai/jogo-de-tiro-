@@ -90,7 +90,7 @@ function startGame() {
     startScreen.style.display = 'none';
     gameOverScreen.style.display = 'none';
     canvas.style.display = 'block';
-    
+
     initGame();
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     gameLoop();
@@ -100,7 +100,7 @@ function stopGame() {
     gameState = 'GAMEOVER';
     score = currentScore;
     cancelAnimationFrame(animationFrameId);
-    
+
     canvas.style.display = 'none';
     gameOverScreen.style.display = 'flex';
     finalScoreElement.innerText = `PONTUAÇÃO: ${score}`;
@@ -120,7 +120,7 @@ function gameLoop() {
     if (bgOffX <= -canvas.width) {
         bgOffX = 0;
     }
-    
+
     if (bgImage.complete && bgImage.naturalHeight !== 0) {
         ctx.drawImage(bgImage, bgOffX, 0, canvas.width, canvas.height);
         ctx.drawImage(bgImage, bgOffX + canvas.width, 0, canvas.width, canvas.height);
@@ -133,7 +133,7 @@ function gameLoop() {
     if (keys.ArrowUp && player.y > 20) player.y -= player.speed;
     if (keys.ArrowDown && player.y < canvas.height - player.height) player.y += player.speed;
     if (keys.ArrowLeft && player.x > 0) player.x -= player.speed;
-    if (keys.ArrowRight && player.x < canvas.width / 2) player.x += player.speed; 
+    if (keys.ArrowRight && player.x < canvas.width / 2) player.x += player.speed;
 
     // 3. Shooting
     if (keys.Space && frames - lastFireTime > 12) {
@@ -142,7 +142,7 @@ function gameLoop() {
             y: player.y + 20,
             width: 15,
             height: 6,
-            speed: 12,
+            speed: 30,
             color: '#f39c12'
         });
         lastFireTime = frames;
@@ -165,7 +165,7 @@ function gameLoop() {
     for (let i = bullets.length - 1; i >= 0; i--) {
         const b = bullets[i];
         b.x += b.speed;
-        
+
         ctx.fillStyle = b.color;
         ctx.shadowBlur = 10;
         ctx.shadowColor = b.color;
@@ -196,7 +196,7 @@ function gameLoop() {
             player.y + player.height - hitBoxTolerance > e.y
         ) {
             stopGame();
-            return; 
+            return;
         }
 
         // Check collision with bullets
@@ -239,7 +239,7 @@ function gameLoop() {
         p.x += p.vx;
         p.y += p.vy;
         p.life -= 0.04;
-        
+
         ctx.globalAlpha = p.life;
         ctx.fillStyle = p.color;
         ctx.beginPath();
@@ -259,7 +259,7 @@ function gameLoop() {
     ctx.beginPath();
     ctx.roundRect(15, 15, 180, 40, 8);
     ctx.fill();
-    
+
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 22px Arial';
     ctx.fillText(`SCORE: ${currentScore}`, 30, 43);
