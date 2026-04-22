@@ -19,8 +19,8 @@ ctx.fillStyle = '#2c3e50';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 const bgImage = new Image();
-// Pointing to the asset previously used in the React src/assets
-bgImage.src = 'src/assets/bgsunset.png';
+// Pointing to the generated image
+bgImage.src = 'Gemini_Generated_Image_tzhwc6tzhwc6tzhw.png';
 
 let player = {};
 let keys = {};
