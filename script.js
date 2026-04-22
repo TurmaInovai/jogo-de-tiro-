@@ -32,12 +32,12 @@ let frames = 0;
 let lastFireTime = 0;
 let bgOffX = 0;
 
-const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁'];
+const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁']
 
 function initGame() {
     player = {
-        x: 50,
-        y: 200,
+        x: 70,
+        y: 100,
         width: 40,
         height: 40,
         speed: 5,
