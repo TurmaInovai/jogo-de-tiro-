@@ -32,55 +32,55 @@ let frames = 0;
 let lastFireTime = 0;
 let bgOffX = 0;
 
-const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁'];
+const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁'🤪']
 
 function initGame() {
-    player = {
-        x: 50,
-        y: 200,
-        width: 40,
-        height: 40,
-        speed: 5,
-        emoji: '🥷'
-    };
+        player = {
+            x: 50,
+            y: 200,
+            width: 40,
+            height: 40,
+            speed: 5,
+            emoji: '🥷'
+        };
 
-    keys = {
-        ArrowUp: false,
-        ArrowDown: false,
-        ArrowLeft: false,
-        ArrowRight: false,
-        Space: false
-    };
+        keys = {
+            ArrowUp: false,
+            ArrowDown: false,
+            ArrowLeft: false,
+            ArrowRight: false,
+            Space: false
+        };
 
-    bullets = [];
-    enemies = [];
-    particles = [];
-    currentScore = 0;
-    frames = 0;
-    lastFireTime = 0;
-    bgOffX = 0;
-}
+        bullets = [];
+        enemies = [];
+        particles = [];
+        currentScore = 0;
+        frames = 0;
+        lastFireTime = 0;
+        bgOffX = 0;
+    }
 
 function handleKeyDown(e) {
-    if (gameState !== 'PLAYING') return;
-    if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
-        e.preventDefault();
+        if (gameState !== 'PLAYING') return;
+        if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+            e.preventDefault();
+        }
+        if (e.code === 'ArrowUp') keys.ArrowUp = true;
+        if (e.code === 'ArrowDown') keys.ArrowDown = true;
+        if (e.code === 'ArrowLeft') keys.ArrowLeft = true;
+        if (e.code === 'ArrowRight') keys.ArrowRight = true;
+        if (e.code === 'Space') keys.Space = true;
     }
-    if (e.code === 'ArrowUp') keys.ArrowUp = true;
-    if (e.code === 'ArrowDown') keys.ArrowDown = true;
-    if (e.code === 'ArrowLeft') keys.ArrowLeft = true;
-    if (e.code === 'ArrowRight') keys.ArrowRight = true;
-    if (e.code === 'Space') keys.Space = true;
-}
 
 function handleKeyUp(e) {
-    if (gameState !== 'PLAYING') return;
-    if (e.code === 'ArrowUp') keys.ArrowUp = false;
-    if (e.code === 'ArrowDown') keys.ArrowDown = false;
-    if (e.code === 'ArrowLeft') keys.ArrowLeft = false;
-    if (e.code === 'ArrowRight') keys.ArrowRight = false;
-    if (e.code === 'Space') keys.Space = false;
-}
+        if (gameState !== 'PLAYING') return;
+        if (e.code === 'ArrowUp') keys.ArrowUp = false;
+        if (e.code === 'ArrowDown') keys.ArrowDown = false;
+        if (e.code === 'ArrowLeft') keys.ArrowLeft = false;
+        if (e.code === 'ArrowRight') keys.ArrowRight = false;
+        if (e.code === 'Space') keys.Space = false;
+    }
 
 window.addEventListener('keydown', handleKeyDown, { passive: false });
 window.addEventListener('keyup', handleKeyUp);
