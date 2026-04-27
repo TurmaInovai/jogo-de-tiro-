@@ -19,8 +19,8 @@ ctx.fillStyle = '#2c3e50';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 const bgImage = new Image();
-// Pointing to the asset previously used in the React src/assets
-bgImage.src = 'src/assets/bgsunset.png';
+// Pointing to the generated image
+bgImage.src = 'Gemini_Generated_Image_tzhwc6tzhwc6tzhw.png';
 
 let player = {};
 let keys = {};
@@ -32,12 +32,12 @@ let frames = 0;
 let lastFireTime = 0;
 let bgOffX = 0;
 
-const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁'🤪']
+const enemyTypes = ['👾', '🧟', '🐺', '🕷️', '🚁'
 
 function initGame() {
         player = {
-            x: 50,
-            y: 200,
+            x: 70,
+            y: 100,
             width: 40,
             height: 40,
             speed: 5,
